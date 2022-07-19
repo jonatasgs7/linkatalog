@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-//import org.springframework.data.repository.CrudRepository;
+//import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface LinkRepository extends JpaRepository<Links, Long> {
+public interface LinkRepository extends CrudRepository<Links, Long> {
 	
 	List<Links> findByCompanyId(Long companyId);
 	  

@@ -2,11 +2,14 @@ package com.linkatalog.projetofinal.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -56,7 +59,7 @@ public class LinksController {
 	
 	
 	@DeleteMapping("/links/{id}")
-	  public ResponseEntity<HttpStatus> deleteLink(@PathVariable("id") long id) {
+	  public ResponseEntity<HttpStatus> deleteLink(@PathVariable("id") Long id) {
 	    linkRepository.deleteById(id);
 	    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	  }
@@ -70,6 +73,17 @@ public class LinksController {
 	    linkRepository.deleteByCompanyId(companyId);
 	    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	  }
+	
+	
+	@ModelAttribute
+    public void setResponseHeader(HttpServletResponse response) {
+	   //response.setHeader("Content-Type: application/json", "charset=utf-8");
+	   //response.setHeader("Content-Type", "multipart/form-data");
+	   response.setHeader("Access-Control-Allow-Origin", "*");
+	   response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+	   response.setHeader("Access-Control-Allow-Credentials", "true");
+	   response.setHeader("Access-Control-Allow-Headers", "auth-token, access-control-allow-origin");
+    }
 	
 	
 

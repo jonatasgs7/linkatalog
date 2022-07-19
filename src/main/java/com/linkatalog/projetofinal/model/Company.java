@@ -21,8 +21,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 public class Company {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "company_generator")
-	private long id;
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "company_generator")
+	private Long id;
 	
 	@Column(nullable = false)
 	private String name;
@@ -30,8 +30,8 @@ public class Company {
 	@Column
 	private String description;
 	
-	@Column
-	private String image_url;
+	/* @Column
+	private String image_url; */
 	
 	@Column
 	private String color1;
@@ -56,11 +56,11 @@ public class Company {
 	private Date date_update;
 	
 	//Getters and Setters
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -80,13 +80,13 @@ public class Company {
 		this.description = description;
 	}
 
-	public String getImage_url() {
+	/* public String getImage_url() {
 		return image_url;
 	}
 	
 	public void setImage_url(String image_url) {
 		this.image_url = image_url;
-	}
+	} */
 
 
 	public String getColor1() {

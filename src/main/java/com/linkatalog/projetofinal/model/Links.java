@@ -26,8 +26,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Links {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "link_generator")
-	private long id;
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "link_generator")
+	private Long id;
 	
 	@Column(nullable = false)
 	private String link;
@@ -54,11 +54,11 @@ public class Links {
 	@Column(name = "date_update")
 	private Date date_update;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

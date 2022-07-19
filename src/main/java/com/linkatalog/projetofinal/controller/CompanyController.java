@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.linkatalog.projetofinal.model.Company;
 import com.linkatalog.projetofinal.model.CompanyRepository;
 
@@ -53,7 +54,7 @@ public class CompanyController {
 		}
 		
 		x.setDescription(newCompany.getDescription());
-		x.setImage_url(newCompany.getImage_url());
+		// x.setImage_url(newCompany.getImage_url());
 		x.setColor1(newCompany.getColor1());
 		x.setColor2(newCompany.getColor2());
 		return companyRepository.save(x);
@@ -61,9 +62,12 @@ public class CompanyController {
 	
 	@ModelAttribute
     public void setResponseHeader(HttpServletResponse response) {
-       response.setHeader("Content-Type: application/json", "charset=utf-8");
-       response.setHeader("Access-Control-Allow-Credentials", "true");
-       response.setHeader("Access-Control-Allow-Origin", "*");
+	   //response.setHeader("Content-Type: application/json", "charset=utf-8");
+	   // response.setHeader("Content-Type","multipart/form-data");
+	   response.setHeader("Access-Control-Allow-Origin", "*");
+	   response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+	   response.setHeader("Access-Control-Allow-Credentials", "true");
+	   response.setHeader("Access-Control-Allow-Headers", "auth-token, access-control-allow-origin");
     }
 
 }

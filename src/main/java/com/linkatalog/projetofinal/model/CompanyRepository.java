@@ -1,8 +1,8 @@
 package com.linkatalog.projetofinal.model;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-//import org.springframework.data.repository.CrudRepository;
+//import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface CompanyRepository extends JpaRepository<Company, Long> {
+public interface CompanyRepository extends CrudRepository<Company, Long> {
 
 }
